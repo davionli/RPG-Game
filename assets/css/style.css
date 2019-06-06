@@ -1,0 +1,22 @@
+body{
+    background-image: url("../images/bgi.jpg");
+    font-family: 'Press Start 2P', cursive;
+    background-size: 100%;
+}
+.itemBox{
+    display: flex;
+    flex-direction: column;
+    padding: 0, 10px, 0, 10px;
+    background-color: white;
+    border: solid 2px blue;
+}
+#tit{
+    font-size: 80px;
+}
+#fight-btn{
+    height: 50px;
+    margin: auto;
+}
+#message{
+    font-size: 50px; 
+}
