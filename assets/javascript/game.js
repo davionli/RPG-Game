@@ -18,11 +18,11 @@ $(document).ready(function () {
         defZone.empty();
         isAttackerPicked = false;
         isDefenderPicked = false;
-        character = [{name: "A", id: 0, hp: 200, att_pwr: 50, def_pwr: 50},
-        {name: "B", id: 1, hp: 100, att_pwr: 10, def_pwr: 10},
-        {name: "C", id: 2, hp: 100, att_pwr: 10, def_pwr: 10},
-        {name: "D", id: 3, hp: 100, att_pwr: 10, def_pwr: 10},
-        {name: "E", id: 4, hp: 100, att_pwr: 10, def_pwr: 10}];
+        character = [{name: "Mamados", id: 0, hp: 180, att_pwr: 30, def_pwr: 35},
+        {name: "Banana", id: 1, hp: 300, att_pwr: 60, def_pwr: 35},
+        {name: "Milky", id: 2, hp: 220, att_pwr: 35, def_pwr: 25},
+        {name: "Xiaomiao", id: 3, hp: 220, att_pwr: 25, def_pwr: 20},
+        {name: "Xiaowang", id: 4, hp: 100, att_pwr: 50, def_pwr: 50}];
         
         character.forEach(function (item){
             var newItem = $("<div>");
@@ -35,6 +35,7 @@ $(document).ready(function () {
             });
             newItem.attr("value", item.id)
             itemName.html(item.name);
+            itemName.attr("class", "itemName");
             itemImg.attr("src", function() {
                 return "assets/images/p" + item.id + ".jpg";
             });
@@ -69,7 +70,7 @@ $(document).ready(function () {
                     defender.css("background-color", "lightyellow");
                     defender.children(".picture").css("width", defender.width());
                 }else {
-                    alert("Pick one from character pool, please!");
+                    alert("Pick one from cat pool, please!");
                 }
             }
             
@@ -81,6 +82,7 @@ $(document).ready(function () {
             pickZone.children().css("background-color", "red");
             attacker.children(".picture").css("width", attacker.width());
             attacker.css("background-color", "chartreuse");
+            message.text("Pick your enemy");
         }
     });
     function win() {
@@ -88,9 +90,11 @@ $(document).ready(function () {
             isDefenderPicked = false;
             character[attacker.attr("value")].att_pwr += 20;
             defZone.empty();
+            message.text("You got it, pick another one!");
         }else {
             message.text("WINNER!");
             defZone.empty();
+            reset();
         }
     }
     function lose() {
